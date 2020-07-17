@@ -56,6 +56,7 @@ before_install:
 install:
   # Download current SELinux userspace tools and libraries
   - git clone https://github.com/SELinuxProject/selinux.git ${USERSPACE_SRC} -b ${SELINUX_USERSPACE_VERSION}
+  - alias make='make -j$(nproc)`'
 
   # Compile SELinux userspace
   - make -C ${SEPOL_SRC}
